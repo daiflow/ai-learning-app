@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: bundle exec puma -C config/puma.rb
+    volumes:
+      - .:/myapp
+    env_file:
+      - .env.production
+    tty: true
+    ports:
+      - "3000:3000"

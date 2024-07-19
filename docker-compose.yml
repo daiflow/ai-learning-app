@@ -1,0 +1,18 @@
+version: '3'
+services:
+  db:
+    image: pgvector/pgvector:pg15
+    volumes:
+      - "db-data:/var/lib/postgresql/data"
+    environment:
+      PGDATA: /tmp
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: aipostgres
+    ports:
+      - "5432:5432"
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+volumes:
+  db-data:
